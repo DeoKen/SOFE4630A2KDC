@@ -15,18 +15,44 @@ $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!'
 		<a href="https://sofe4630a2kdc.herokuapp.com/list.php">Files List</a>
 <?php
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES['userfile']['error'] == UPLOAD_ERR_OK && is_uploaded_file($_FILES['userfile']['tmp_name'])) {
-    // FIXME: add more validation, e.g. using ext/fileinfo
-    try {
-        // FIXME: do not use 'name' for upload (that's the original filename from the user's computer)
-        $upload = $s3->upload($bucket, $_FILES['userfile']['name'], fopen($_FILES['userfile']['tmp_name'], 'rb'), 'public-read');
-?>
-        <p>Upload <a href="<?=htmlspecialchars($upload->get('ObjectURL'))?>">successful</a> :)</p>
-<?php } catch(Exception $e) { ?>
-        <p>Upload error :(</p>
-<?php } } ?>
-        <h2>Upload a file</h2>
+
+	// try upload
+
+	// for now, use existing name
+	$uploadfolder = 'somefolder';
+	$uploadname = $_FILES['userfile']['name'];
+
+	// set up s3
+	$bucket = getenv('S3_BUCKET');
+	$keyname = $uploadfolder.'/'.$uploadname;
+	// try
+	try {
+	    // Upload data.
+	    $result = $s3->putObject(array(
+	        'Bucket' => $bucket,
+	        'Key'    => $keyname,
+	        'Body'   => fopen($_FILES['userfile']['tmp_name'], 'rb'),
+	        'ACL'    => 'public-read'
+	    ));
+
+	    // Print the URL to the object.
+
+	    // show image
+	    echo('<p><img src="'.$result['ObjectURL'].'" /></p>');
+
+	} catch (S3Exception $e) {
+	    echo $e->getMessage() . "\n";
+	}
+
+}
+else {
+	?>
+		<h2>Upload a file</h2>
         <form enctype="multipart/form-data" action="<?=$_SERVER['PHP_SELF']?>" method="POST">
             <input name="userfile" type="file"><input type="submit" value="Upload">
         </form>
-    </body>
+
+	<?
+};
+?>
 </html>

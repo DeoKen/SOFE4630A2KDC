@@ -6,7 +6,7 @@ $s3 = new Aws\S3\S3Client([
     'region'   => 'us-east-1',
 ]);
 $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
-$buckets = $s3Client->listBuckets();
+$buckets = $s3->listBuckets();
 foreach ($buckets['Buckets'] as $bucket) {
     echo $bucket['Name'] . "\n";
 }

@@ -23,11 +23,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES
 	// try upload
 
 	// for now, use existing name
-	$uploadfolder = 'pics';
 	$uploadname = $_FILES['userfile']['name'];
 
 	// set up s3
-	$keyname = $uploadfolder.'/'.$uploadname;
+	$keyname = $uploadname;
 	// try
 	try {
 	    // Upload data.

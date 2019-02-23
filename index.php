@@ -1,4 +1,9 @@
-<?php
+<html>
+    <head><meta charset="UTF-8"></head>
+    <body>
+        <h1>Hello SOFE4630</h1>
+</hmtl>
+/*<?php
 require('vendor/autoload.php');
 // this will simply read AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY from env vars
 $s3 = aws/aws-sdk-php/src/S3/S3Client.php::factory();
@@ -27,3 +32,4 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES
         </form>
     </body>
 </html>
+*/

@@ -14,21 +14,19 @@ foreach ($buckets['Buckets'] as $bucket) {
 <html>
     <head><meta charset="UTF-8"></head>
     <body>
-        <h1>S3 Download example</h1>
 		<h3>S3 Files</h3>
-<?php
-	try {
-		$objects = $s3->getIterator('ListObjects', array(
-			"Bucket" => $bucket['Name']
-		));
-		foreach ($objects as $object) {
-?>
-		<p> <a href="<?=htmlspecialchars($s3->getObjectUrl($bucket['Name'], $object['Key']))?>"> <?echo $object['Key'] . "<br>";?></a></p>
-		
-<?		}?>
 
-<?php } catch(Exception $e) {
-        echo $e->getMessage() . PHP_EOL;
-}  ?>
+<?php
+try {
+    $objects = $s3->listObjects([
+        'Bucket' => $bucket['Name']
+    ]);
+    foreach ($objects['Contents']  as $object) {
+        echo $object['Key'] . PHP_EOL;
+    }
+} catch (S3Exception $e) {
+    echo $e->getMessage() . PHP_EOL;
+}
+?>
     </body>
 </html>

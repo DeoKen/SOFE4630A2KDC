@@ -18,32 +18,26 @@ foreach ($buckets['Buckets'] as $bucket) {
 
 <?php
 try {
-    // Get the object.
-    $result = $s3->getObject([
-        'Bucket' => $bucket,
-        'Key'    => $keyname
-    ]);
-
-    // Display the object in the browser.
-    //header("Content-Type: {$result['ContentType']}");
-    echo echo "<img src=".$result['Body']."height='500' width='500'>";
-    /*
-try {
     $results = $s3->getPaginator('ListObjects', [
         'Bucket' => $bucket['Name']
     ]);
 
     foreach ($results as $result) {
         foreach ($result['Contents'] as $object) {
-            echo $object['Key'] . PHP_EOL;
-            echo "<img src=".$object['Key']."height='500' width='500'>";
+                // Get the object.
+        $result1 = $s3->getObject([
+            'Bucket' => $bucket,
+            'Key'    => $object['Key']
+        ]);
 
+        // Display the object in the browser.
+        header("Content-Type: {$result['ContentType']}");
+        echo $result1['Body'];
         }
     }
 } catch (S3Exception $e) {
     echo $e->getMessage() . PHP_EOL;
 }
-*/
 ?>
     </body>
 </html>

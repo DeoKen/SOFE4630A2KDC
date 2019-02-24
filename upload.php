@@ -35,7 +35,7 @@ if(isset($_FILES['file'])){
         $s3->putObject([
             'Bucket'=>$bucket['Name'],
             'Key'=>"{$name}",
-            'Body'=>fopen($tempfpath, 'r'),
+            'Body'=>fopen($_FILES['file'],'r'),
             'ACL'=>'public-read'
         ]);
         unlink($tempfpath);

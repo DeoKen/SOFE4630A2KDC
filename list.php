@@ -18,11 +18,14 @@ foreach ($buckets['Buckets'] as $bucket) {
 
 <?php
 try {
-    $objects = $s3->listObjects([
+    $results = $s3->getPaginator('ListObjects', [
         'Bucket' => $bucket['Name']
     ]);
-    foreach ($objects['Contents']  as $object) {
-        echo $object['Key'] . PHP_EOL;
+
+    foreach ($results as $result) {
+        foreach ($result['Contents'] as $object) {
+            echo "<img src=".$object['Key']."height='50' width='50'>" . PHP_EOL;
+        }
     }
 } catch (S3Exception $e) {
     echo $e->getMessage() . PHP_EOL;

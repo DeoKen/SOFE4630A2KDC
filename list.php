@@ -24,7 +24,9 @@ try {
 
     foreach ($results as $result) {
         foreach ($result['Contents'] as $object) {
-            echo "<img src=".$object['Key']."height='50' width='50'>" . PHP_EOL;
+            echo $object['Key'] . PHP_EOL;
+            echo "<img src=".$object['Key']."height=\"500\" width=\"500\">" . PHP_EOL;
+
         }
     }
 } catch (S3Exception $e) {

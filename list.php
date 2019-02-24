@@ -27,6 +27,7 @@ try {
     // Display the object in the browser.
     header("Content-Type: {$result['ContentType']}");
     echo echo "<img src=".$result['Body']."height='500' width='500'>";
+    /*
 try {
     $results = $s3->getPaginator('ListObjects', [
         'Bucket' => $bucket['Name']
@@ -42,6 +43,7 @@ try {
 } catch (S3Exception $e) {
     echo $e->getMessage() . PHP_EOL;
 }
+*/
 ?>
     </body>
 </html>

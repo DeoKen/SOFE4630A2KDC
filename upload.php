@@ -41,7 +41,7 @@ if(isset($_FILES['file'])){
         unlink($tempfpath);
         echo $result['ObjectURL'] . PHP_EOL;
     }
-    catch(S3Exception $e){
+    catch(Exception $e){
         die("error");
     }
 }

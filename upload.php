@@ -25,12 +25,13 @@ if(isset($_FILES['file'])){
     $tempname=$file['tempname'];
     $extension=explode('.',$name);
     $extension=strtolower(end($extension));
+    //temp will remove
     $key=md5(uniqid());
     $tempfname="{$key}.{$extension}";
     $tempfpath="uploads/{$tempfname}";
 
     move_uploaded_file($tempfname, $tempfpath);
-
+    //temp ends
     try{
         $s3->putObject([
             'Bucket'=>$bucket['Name'],

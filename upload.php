@@ -38,6 +38,8 @@ if(isset($_FILES['file'])){
             'Body'=>fopen($tempfpath, 'rb'),
             'ACL'=>'public-read'
         ]);
+        unlink($tempfpath);
+        echo $result['ObjectURL'] . PHP_EOL;
     }
     catch(S3Exception $e){
         die("error");

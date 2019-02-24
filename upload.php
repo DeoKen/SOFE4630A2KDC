@@ -34,7 +34,7 @@ if(isset($_FILES['file'])){
     try{
         $s3->putObject([
             'Bucket'=>$bucket,
-            'Key'=>"pics/{$name}",
+            'Key'=>"{$name}",
             'Body'=>fopen($tempfpath, 'rb'),
             'ACL'=>'public-read'
         ]);

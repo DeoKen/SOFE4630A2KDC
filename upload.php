@@ -45,7 +45,11 @@ if(isset($_FILES['file'])){
         die("error");
     }
 }
-
+?>
+<form enctype="multipart/form-data" action="" method="POST">
+            <input name="file" type="file"><input type="submit" value="Upload">
+</form>
+</body>
 
 
 </html>

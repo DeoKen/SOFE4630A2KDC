@@ -26,15 +26,11 @@ try {
         foreach ($result['Contents'] as $object) {
         echo $object['Key'] . PHP_EOL;
                 // Get the object.
-        $result1 = $s3->getObject([
+        $result1 = $s3->getObjectUrl([
             'Bucket' => $bucket['Name'],
             'Key'    => $object['Key']
         ]);
-
-        // Display the object in the browser.
-        header("Content-Type: {$result['ContentType']}");
-        echo $result1['Body'];
-        }
+        echo "<img src='" . $object['Key']."'>";
     }
 } catch (S3Exception $e) {
     echo $e->getMessage() . PHP_EOL;

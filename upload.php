@@ -2,7 +2,7 @@
 require('vendor/autoload.php');
 // this will simply read AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY from env vars
 $s3 = new Aws\S3\S3Client([
-    'version'  => '2006-03-01',
+    'version'  => '2012-10-17',
     'region'   => 'us-east-2',
 ]);
 $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
@@ -36,7 +36,7 @@ if(isset($_FILES['file'])){
         $s3->putObject([
             'Bucket'=>$bucket['Name'],
             'Key'=>"{$name}",
-            'Source File'=>fopen($_FILES['file']['tmp_name'], 'rb'),
+            'Body'=>fopen($_FILES['file']['tmp_name'], 'rb'),
             'ACL'=>'public-read'
         ]);
         unlink($tempfpath);

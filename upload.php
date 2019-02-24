@@ -24,6 +24,9 @@ foreach ($buckets['Buckets'] as $bucket) {
 </form>
 <?php
 $keyname=$_FILES['fileToUpload']['name'];
+echo'<p>';
+echo $keyname;
+echo '</p>';
 try {
     // Upload data.
     $result = $s3->putObject([

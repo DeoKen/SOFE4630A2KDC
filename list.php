@@ -17,6 +17,20 @@ foreach ($buckets['Buckets'] as $bucket) {
 		<h3>S3 Files</h3>
 
 <?php
+	try {
+		$objects = $s3->getIterator('ListObjects', array(
+			"Bucket" => $bucket
+		));
+		foreach ($objects as $object) {
+?>
+		<p> <a href="<?=htmlspecialchars($s3->getObjectUrl($bucket, $object['Key']))?>"> <?echo "<img src="$object['Key'] . "><br>";?></a></p>
+
+<?		}?>
+
+<?php } catch(Exception $e) { ?>
+        <p>error :(</p>
+<?php }  ?>
+/*
 try {
     $results = $s3->getPaginator('ListObjects', [
         'Bucket' => $bucket['Name']
@@ -35,6 +49,7 @@ try {
 } catch (S3Exception $e) {
     echo $e->getMessage() . PHP_EOL;
 }
+*/
 ?>
     </body>
 </html>

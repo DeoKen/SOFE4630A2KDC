@@ -17,29 +17,33 @@ foreach ($buckets['Buckets'] as $bucket) {
         <h1>Hello SOFE4630</h1>
 
 		<a href="https://sofe4630a2kdc.herokuapp.com/list.php">Files List</a>
-		<form method="post" enctype="multipart/form-data">
-    Select image to upload:
-    <input type="file" name="fileToUpload" id="fileToUpload">
-    <input type="submit" value="Upload Image" name="submit">
-</form>
 <?php
-$keyname=$_FILES['fileToUpload']['name'];
-echo'<p>';
-echo $keyname;
-echo '</p>';
-try {
-    // Upload data.
-    $result = $s3->putObject([
-        'Bucket' => $bucket,
-        'Key'    => $keyname,
-        'Body'   => 'Hello, world!',
-        'ACL'    => 'public-read'
-    ]);
+if(isset($_FILES['file'])){
+    $file = $_FILES['file'];
 
-    // Print the URL to the object.
-    echo $result['ObjectURL'] . PHP_EOL;
-} catch (S3Exception $e) {
-    echo $e->getMessage() . PHP_EOL;
+    $name=$file['name'];
+    $tempname=$file['tempname'];
+    $extension=explode('.',$name);
+    $extension=strtolower(end($extension));
+    $key=md5(uniqid());
+    $tempfname="{$key}.{$extension}";
+    $tempfpath="uploads/{$tempfname}";
+
+    move_uploaded_file($tempfname, $tempfpath);
+
+    try{
+        $s3->putObject([
+            'Bucket'=>$bucket,
+            'Key'=>"pics/{$name}",
+            'Body'=>fopen($tempfpath, 'rb'),
+            'ACL'=>'public-read'
+        ]);
+    }
+    catch(S3Exception $e){
+        die("error");
+    }
 }
-?>
+
+
+
 </html>

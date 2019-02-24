@@ -15,8 +15,6 @@ foreach ($buckets['Buckets'] as $bucket) {
     <head><meta charset="UTF-8"></head>
     <body>
 		<h3>S3 Files</h3>
-		<img src="https://s3.us-east-2.amazonaws.com/sofe430a2kdc/merc.jpg">
-
 <?php
 	try {
 		$objects = $s3->getIterator('ListObjects', array(
@@ -24,7 +22,7 @@ foreach ($buckets['Buckets'] as $bucket) {
 		));
 		foreach ($objects as $object) {
 ?>
-		<p> <a href="<?=htmlspecialchars($s3->getObjectUrl($bucket['Name'], $object['Key']))?>"> <?echo "<img src=".$object['Key'] . "><br>";?></a></p>
+		<p> <a href="<?=htmlspecialchars($s3->getObjectUrl($bucket['Name'], $object['Key']))?>"> <?echo "<img src=https://s3.us-east-2.amazonaws.com/sofe430a2kdc/".$object['Key'] . " height='500' width='500'><br>";?></a></p>
 
 <?		}?>
 

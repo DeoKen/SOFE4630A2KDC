@@ -19,7 +19,7 @@ foreach ($buckets['Buckets'] as $bucket) {
 <?php
 	try {
 		$objects = $s3->getIterator('ListObjects', array(
-			"Bucket" => $bucket
+			"Bucket" => $bucket['Name']
 		));
 		foreach ($objects as $object) {
 ?>
@@ -27,9 +27,9 @@ foreach ($buckets['Buckets'] as $bucket) {
 
 <?		}?>
 
-<?php } catch(Exception $e) { ?>
-        <p>error :(</p>
-<?php }  ?>
+<?php } catch(Exception $e) {
+        echo $e->getMessage() . PHP_EOL;
+ }  ?>
 /*
 try {
     $results = $s3->getPaginator('ListObjects', [

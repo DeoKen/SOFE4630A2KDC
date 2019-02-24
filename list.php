@@ -20,13 +20,25 @@ foreach ($buckets['Buckets'] as $bucket) {
 try {
     // Get the object.
     $result = $s3->getObject([
-        'Bucket' => $bucket['Name'],
+        'Bucket' => $bucket,
         'Key'    => $keyname
     ]);
 
     // Display the object in the browser.
     header("Content-Type: {$result['ContentType']}");
-    echo $result['Body'];
+    echo echo "<img src=".$result['Body']."height='500' width='500'>";
+try {
+    $results = $s3->getPaginator('ListObjects', [
+        'Bucket' => $bucket['Name']
+    ]);
+
+    foreach ($results as $result) {
+        foreach ($result['Contents'] as $object) {
+            echo $object['Key'] . PHP_EOL;
+            echo "<img src=".$object['Key']."height='500' width='500'>";
+
+        }
+    }
 } catch (S3Exception $e) {
     echo $e->getMessage() . PHP_EOL;
 }

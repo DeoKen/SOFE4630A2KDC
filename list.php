@@ -25,7 +25,7 @@ try {
     ]);
 
     // Display the object in the browser.
-    header("Content-Type: {$result['ContentType']}");
+    //header("Content-Type: {$result['ContentType']}");
     echo echo "<img src=".$result['Body']."height='500' width='500'>";
     /*
 try {

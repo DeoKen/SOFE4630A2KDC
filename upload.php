@@ -42,7 +42,7 @@ if(isset($_FILES['file'])){
         echo $result['ObjectURL'] . PHP_EOL;
     }
     catch(Exception $e){
-        die("error");
+        echo $e->getMessage() . PHP_EOL;
     }
 }
 ?>

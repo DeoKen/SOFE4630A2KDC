@@ -30,7 +30,7 @@ try {
             'Bucket' => $bucket['Name'],
             'Key'    => $object['Key']
         ]);
-        echo "<img src='" . $object['Key']."'>";
+        echo "<img src=" . $object['Key']."><br>";
     }
 } catch (S3Exception $e) {
     echo $e->getMessage() . PHP_EOL;

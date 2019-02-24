@@ -29,7 +29,7 @@ foreach ($buckets['Buckets'] as $bucket) {
 
 <?php } catch(Exception $e) {
         echo $e->getMessage() . PHP_EOL;
- }  ?>
+ }
 /*
 try {
     $results = $s3->getPaginator('ListObjects', [

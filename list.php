@@ -24,9 +24,10 @@ try {
 
     foreach ($results as $result) {
         foreach ($result['Contents'] as $object) {
+        echo $object['Key'] . PHP_EOL;
                 // Get the object.
         $result1 = $s3->getObject([
-            'Bucket' => $bucket,
+            'Bucket' => $bucket['Name'],
             'Key'    => $object['Key']
         ]);
 

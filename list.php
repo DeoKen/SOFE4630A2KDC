@@ -23,8 +23,8 @@ $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!'
 		
 <?		}?>
 
-<?php } catch(Exception $e) { ?>
+<?php } catch(Exception $e) {
         echo $e->getMessage() . PHP_EOL;
-<?php }  ?>
+}  ?>
     </body>
 </html>

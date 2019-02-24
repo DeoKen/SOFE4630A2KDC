@@ -22,7 +22,7 @@ foreach ($buckets['Buckets'] as $bucket) {
 		));
 		foreach ($objects as $object) {
 ?>
-		<p> <a href="<?=htmlspecialchars($s3->getObjectUrl($bucket['Name'], $object['Key']))?>"> <?echo "<img src=https://s3.us-east-2.amazonaws.com/sofe430a2kdc/".$object['Key'] . " height='500' width='500'><br>";?></a></p>
+		<p> <a href="<?=htmlspecialchars($s3->getObjectUrl($bucket['Name'], $object['Key']))?>"> <?echo "<img src=https://s3.us-east-2.amazonaws.com/sofe430a2kdc/".$object['Key'] . " height='100' width='100'><br>";?></a></p>
 
 <?		}?>
 

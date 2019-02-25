@@ -40,7 +40,6 @@ if(isset($_FILES['file'])){
             'ACL'=>'public-read'
         ]);
         unlink($tempfpath);
-        echo $result['ObjectURL'] . PHP_EOL;
     }
     catch(Exception $e){
         echo $e->getMessage() . PHP_EOL;

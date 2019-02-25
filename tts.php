@@ -6,11 +6,11 @@
 
     if( isset( $_GET['tts'] ) && !empty( $_GET['tts'] ) )
     {
-            $articleText = $_GET['data'];
+           $articleText = $_GET['tts'];
     } else {
         $articleText = 'no message found';
     }
-    
+
     $googleAPIKey = 'AIzaSyBFHwK7xiu0O1mlztwcg18yBYPdb-2f0Wk';
     $client = new GuzzleHttp\Client();
     $requestData = [

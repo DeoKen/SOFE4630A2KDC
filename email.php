@@ -74,7 +74,8 @@ try {
         ],
     ]);
     $messageId = $result['MessageId'];
-    echo("Email sent! Message ID: $messageId"."\n");
+    echo "Email sent! Message ID: $messageId"."\n";
+    echo "<a href=https://sofe4630a2kdc.herokuapp.com/>HOME</a>";
 } catch (AwsException $e) {
     // output error message if fails
     echo $e->getMessage();

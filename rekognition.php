@@ -29,6 +29,7 @@ foreach ($buckets['Buckets'] as $bucket) {
                 $key = $_GET['value'];
                 echo $key;
             }
+            /*
             $result = $rekog->detectLabels([
                 'Image' => [ // REQUIRED
                     'S3Object' => [
@@ -39,6 +40,7 @@ foreach ($buckets['Buckets'] as $bucket) {
                 'MaxLabels' => 10,
                 'MinConfidence' => 20,
             ]);
+            */
             //echo $result;
             //echo $result['Name']['Confidence'];
         ?>

@@ -25,6 +25,7 @@ if( isset( $_POST['data'] ) && !empty( $_POST['data'] ) )
 }
 
 //getting files list
+$filelist="";
 try {
     $results = $s3->getPaginator('ListObjects', [
         'Bucket' => $bucket['Name']
@@ -33,6 +34,7 @@ try {
     foreach ($results as $result) {
         foreach ($result['Contents'] as $object) {
             echo $object['Key'] . PHP_EOL;
+            $filelist .= $object['Key'] . PHP_EOL;
         }
     }
 } catch (S3Exception $e) {
@@ -41,6 +43,7 @@ try {
 
 $subject = 'S3 File List';
 $plaintext_body = $filelist ;
+echo $plaintext_body;
 $html_body =  '<h1>AWS Amazon Simple Email Service Test Email</h1>'.
               '<p>This email was sent with <a href="https://aws.amazon.com/ses/">'.
               'Amazon SES</a> using the <a href="https://aws.amazon.com/sdk-for-php/">'.

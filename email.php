@@ -52,7 +52,7 @@ echo "got here";
 try {
     $SesClient->sendEmail([
         'Destination' => [
-            'ToAddresses' => $recipient_emails,
+            'ToAddresses' => [$recipient_emails],
         ],
         'ReplyToAddresses' => [$sender_email],
         'Source' => $sender_email,

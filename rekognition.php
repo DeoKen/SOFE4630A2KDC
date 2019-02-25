@@ -34,7 +34,7 @@ foreach ($buckets['Buckets'] as $bucket) {
                 'Image' => [ // REQUIRED
                     'S3Object' => [
                         'Bucket' => $bucket['Name'],
-                        'Name' => '$key',
+                        'Name' => 'cat.jpg',
                     ],
                 ],
                 'MaxLabels' => 10,

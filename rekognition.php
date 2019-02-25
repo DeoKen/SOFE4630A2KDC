@@ -5,12 +5,12 @@ $s3 = new Aws\S3\S3Client([
     'version'  => 'latest',
     'region'   => 'us-east-2',
 ]);
-
+/*
 $client = new Aws\Rekognition\RekognitionClient([
     'version'   =>  'latest',
     'region'    =>  'us-east-1',
 ]);
-
+*/
 $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
 $buckets = $s3->listBuckets();
 

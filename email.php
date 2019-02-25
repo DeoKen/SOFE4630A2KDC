@@ -16,6 +16,7 @@ $sender_email = 'kenneth.delacruz@uoit.net';
 if( isset( $_POST['data'] ) && !empty( $_POST['data'] ) )
 {
     $recipient_emails = $_POST['data'];
+    echo $recipient_emails;
 } else {
     echo("no email");
 }
@@ -45,7 +46,7 @@ try {
 } catch (S3Exception $e) {
     echo $e->getMessage() . PHP_EOL;
 }
-
+/*
 $subject = 'S3 File List';
 $plaintext_body = $filelist ;
 $html_body =  '<h1>AWS Amazon Simple Email Service Test Email</h1>'.
@@ -89,4 +90,5 @@ try {
     echo("The email was not sent. Error message: ".$e->getAwsErrorMessage()."\n");
     echo "\n";
 }
+*/
 ?>

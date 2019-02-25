@@ -42,7 +42,7 @@ foreach ($buckets['Buckets'] as $bucket) {
                 'MinConfidence' => 20,
             ]);
 
-            //echo $result;
+            echo $result;
             //echo $result['Name']['Confidence'];
         ?>
     </body>

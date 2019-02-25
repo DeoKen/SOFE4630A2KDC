@@ -10,8 +10,6 @@
         <?php
 
     require 'vendor/autoload.php';
-    $articleText = 'no message found';
-
 
     if( isset( $_POST['tts'] ) && !empty( $_POST['tts'] ) )
     {

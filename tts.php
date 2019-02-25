@@ -1,6 +1,5 @@
 <?php
     require 'vendor/autoload.php';
-    $googleAPIKey = 'AIzaSyBFHwK7xiu0O1mlztwcg18yBYPdb-2f0Wk';
     $articleText = 'no message found';
 
     /*
@@ -11,21 +10,29 @@
         $articleText = 'no message found';
     }
     */
-    use Google\Cloud\TextToSpeech\V1\AudioConfig;
-    use Google\Cloud\TextToSpeech\V1\AudioEncoding;
-    use Google\Cloud\TextToSpeech\V1\SynthesisInput;
-    use Google\Cloud\TextToSpeech\V1\TextToSpeechClient;
-    use Google\Cloud\TextToSpeech\V1\VoiceSelectionParams;
-
-    $textToSpeechClient = new TextToSpeechClient();
-
-    $input = new SynthesisInput();
-    $input->setText($articleText);
-    $voice = new VoiceSelectionParams();
-    $voice->setLanguageCode('en-US');
-    $audioConfig = new AudioConfig();
-    $audioConfig->setAudioEncoding(AudioEncoding::MP3);
-
-    $resp = $textToSpeechClient->synthesizeSpeech($input, $voice, $audioConfig);
-    file_put_contents('test.mp3', $resp->getAudioContent());
+    $googleAPIKey = 'AIzaSyBFHwK7xiu0O1mlztwcg18yBYPdb-2f0Wk';
+    $client = new GuzzleHttp\Client();
+    $requestData = [
+        'input' =>[
+            'text' => $articleText
+        ],
+        'voice' => [
+            'languageCode' => 'en-US',
+            'name' => 'en-US-Wavenet-F'
+        ],
+        'audioConfig' => [
+            'audioEncoding' => 'MP3',
+            'pitch' => 0.00,
+            'speakingRate' => 1.00
+        ]
+    ];
+    try {
+        $response = $client->request('POST', 'https://texttospeech.googleapis.com/v1beta1/text:synthesize?key=' . $googleAPIKey, [
+            'json' => $requestData
+        ]);
+    } catch (Exception $e) {
+        die('Something went wrong: ' . $e->getMessage());
+    }
+    $fileData = json_decode($response->getBody()->getContents(), true);
+    file_put_contents('tts.mp3', base64_decode($fileData['audioContent']));
 ?>

@@ -8,7 +8,7 @@ $s3 = new Aws\S3\S3Client([
 
 $client = new Aws\Rekognition\RekognitionClient([
     'version'   =>  'latest',
-    'region'    =>  'us-east-1',
+    'region'    =>  'us-east-2',
 ]);
 
 $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');

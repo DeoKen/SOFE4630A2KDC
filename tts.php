@@ -42,7 +42,8 @@
     if (filesize($file)>0){
         echo "<audio controls autoplay><source src=".$file." type=audio/mp3></audio>";
     }
-    header("Location: index.php");
-    exit();
+    echo'<a href=https://sofe4630a2kdc.herokuapp.com>HOME</a>';
+    //header("Location: index.php");
+    //exit();
 ?>
 

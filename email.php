@@ -10,7 +10,7 @@ $buckets = $s3->listBuckets();
 foreach ($buckets['Buckets'] as $bucket) {
     echo $bucket['Name'] . "\n";
 }
-?>
+
 /*
 $SesClient = new SesClient([
     'version' => '2010-12-01',

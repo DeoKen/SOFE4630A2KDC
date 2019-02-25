@@ -40,9 +40,9 @@ $response = $client->synthesizeSpeech($synthesis_input, $voice, $audioConfig);
 $audioContent = $response->getAudioContent();
 // the response's audioContent is binary
 file_put_contents($file, $audioContent);
-    if (filesize($file)>0){
+    //if (filesize($file)>0){
         echo "<audio controls><source src=".$file." type=audio/mp3></audio>";
-    }
+    //}
 
 ?>
 <html>

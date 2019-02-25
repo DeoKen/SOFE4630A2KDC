@@ -18,12 +18,6 @@ $buckets = $s3->listBuckets();
 foreach ($buckets['Buckets'] as $bucket) {
     echo $bucket['Name'] . "\n";
 }
-?>
-
-<html>
-    <head><meta charset="UTF-8"></head>
-    <body>
-        <h1>Hello SOFE4630</h1>
         /*<?php
             if(isset($_GET['value'])){
                 $key = $_GET['value'];
@@ -44,5 +38,12 @@ foreach ($buckets['Buckets'] as $bucket) {
             //echo $result;
             //echo $result['Name']['Confidence'];
         //?>
+?>
+
+<html>
+    <head><meta charset="UTF-8"></head>
+    <body>
+        <h1>Hello SOFE4630</h1>
+
     </body>
 </html>

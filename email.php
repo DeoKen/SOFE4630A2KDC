@@ -24,7 +24,7 @@ if( isset( $_POST['data'] ) && !empty( $_POST['data'] ) )
 } else {
     echo("no email");
 }
-/*
+
 //getting files list
 try {
     $results = $s3->getPaginator('ListObjects', [
@@ -50,7 +50,7 @@ try {
 } catch (S3Exception $e) {
     echo $e->getMessage() . PHP_EOL;
 }
-
+/*
 $subject = 'S3 File List';
 $plaintext_body = $filelist ;
 $html_body =  '<h1>AWS Amazon Simple Email Service Test Email</h1>'.

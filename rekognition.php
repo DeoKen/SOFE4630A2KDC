@@ -30,18 +30,18 @@ foreach ($buckets['Buckets'] as $bucket) {
                 $key = $_GET['value'];
                 echo $key;
             }
-            $client->detectLabels([
+            $result = $client->detectLabels([
                 'Image' => [ // REQUIRED
                     'S3Object' => [
                         'Bucket' => $bucket['Name'],
-                        'Name' => 'cat.jpg',
+                        'Name' => '$key',
                     ],
                 ],
                 'MaxLabels' => 10,
                 'MinConfidence' => 20,
             ]);
             echo "im here";
-            //echo $result;
+            echo $result;
             //echo $result['Name']['Confidence'];
 
 

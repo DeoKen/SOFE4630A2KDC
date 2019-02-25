@@ -65,6 +65,9 @@ if(isset($_FILES['file'])){
     }
 
 ?>
+        <form action="email.php" method="post" id="data">
+        <input type="text" name="data">
+        <input type="submit">
     </body>
 </html>
 

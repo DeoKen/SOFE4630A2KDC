@@ -1,5 +1,4 @@
 <?php
-/*
     require 'vendor/autoload.php';
     $articleText = 'no message found';
 
@@ -35,18 +34,14 @@
         die('Something went wrong: ' . $e->getMessage());
     }
     $fileData = json_decode($response->getBody()->getContents(), true);
-    $file = 'tts';
-    $file = $file. ".mp3";
-    file_put_contents($file, base64_decode($fileData['audioContent']));
-
-    echo "<audio controls><source src=".$file." type='audio/mp3></audio>";
+    file_put_contents('tts.mp3', base64_decode($fileData['audioContent']));
 
 ?>
 <html>
     <head><meta charset="UTF-8"></head>
     <body>
         <p>Google TTS</p>
-        <form action="" method="get" id="tts">
+        <form action="tts.php" method="get" id="tts">
         <input type="text" name="tts">
         <input type="submit">
     </body>

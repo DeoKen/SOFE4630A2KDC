@@ -21,12 +21,15 @@ foreach ($buckets['Buckets'] as $bucket) {
 			"Bucket" => $bucket['Name']
 		));
 		foreach ($objects as $object) {
-?>
-		<p> <a href="<?=htmlspecialchars($s3->getObjectUrl($bucket['Name'], $object['Key']))?>"> <?echo "<img src=https://s3.us-east-2.amazonaws.com/sofe430a2kdc/".$object['Key'] . " height='100' width='100'><br>";?></a></p>
+		echo "<p> <a href=";
+		htmlspecialchars(
+		$s3->getObjectUrl(
+		    $bucket['Name'], $object['Key']))
+		echo "><img src=https://s3.us-east-2.amazonaws.com/sofe430a2kdc/".$object['Key'] . " height='100' width='100'><br></a></p>";
 
-<?		}?>
+		}
 
-<?php } catch(Exception $e) {
+} catch(Exception $e) {
         echo $e->getMessage() . PHP_EOL;
  }
 

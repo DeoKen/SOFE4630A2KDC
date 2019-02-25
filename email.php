@@ -50,7 +50,7 @@ try {
     ]);
     foreach ($objects['Contents']  as $object) {
         echo $object['Key'] . PHP_EOL;
-        $filelist .= $object['Key'] . PHP_EOL;
+        //$filelist .= $object['Key'] . PHP_EOL;
     }
 } catch (S3Exception $e) {
     echo $e->getMessage() . PHP_EOL;

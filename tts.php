@@ -35,9 +35,11 @@
         die('Something went wrong: ' . $e->getMessage());
     }
     $fileData = json_decode($response->getBody()->getContents(), true);
-    $file = file_put_contents('tts.mp3', base64_decode($fileData['audioContent']));
+    $file = "tts";
+    $file = $file . ".mp3";
+    file_put_contents($file, base64_decode($fileData['audioContent']));
 
-    echo "<audio controls><source src=".$file." type='audio/mpeg></audio>";
+    echo "<audio controls><source src=".$file." type=audio/mp3></audio>";
 
 ?>
 <html>
@@ -47,5 +49,6 @@
         <form action="tts.php" method="get" id="tts">
         <input type="text" name="tts">
         <input type="submit">
+        <audio controls><source src=<?php echo $file; ?> type=audio/mp3></audio>
     </body>
 </html>

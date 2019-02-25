@@ -14,7 +14,7 @@ $SesClient = new Aws\Ses\SesClient([
     'version' => '2010-12-01',
     'region'  => 'us-east-1'
 ]);
-$sender_email = 'kenneth.delacruz@uoit.net';
+$sender_email = 'k_jasper0.1@hotmail.com';
 
 if( isset( $_POST['data'] ) && !empty( $_POST['data'] ) )
 {
@@ -42,8 +42,7 @@ try {
 }
 
 $subject = 'S3 File List';
-$plaintext_body = $filelist ;
-echo $plaintext_body;
+$plaintext_body = $filelist;
 $html_body =  '<h1>AWS Amazon Simple Email Service Test Email</h1>'.
               '<p>This email was sent with <a href="https://aws.amazon.com/ses/">'.
               'Amazon SES</a> using the <a href="https://aws.amazon.com/sdk-for-php/">'.
@@ -73,9 +72,6 @@ try {
               'Data' => $subject,
           ],
         ],
-        // If you aren't using a configuration set, comment or delete the
-        // following line
-        'ConfigurationSetName' => $configuration_set,
     ]);
     $messageId = $result['MessageId'];
     echo("Email sent! Message ID: $messageId"."\n");

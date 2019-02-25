@@ -25,6 +25,11 @@ if( isset( $_POST['data'] ) && !empty( $_POST['data'] ) )
     echo("no email");
 }
 
+<html>
+    <head><meta charset="UTF-8"></head>
+    <body>
+		<h3>S3 Files</h3>
+<?php
 //getting files list
 try {
     $results = $s3->getPaginator('ListObjects', [
@@ -50,6 +55,11 @@ try {
 } catch (S3Exception $e) {
     echo $e->getMessage() . PHP_EOL;
 }
+
+?>
+    </body>
+</html>
+
 /*
 $subject = 'S3 File List';
 $plaintext_body = $filelist ;

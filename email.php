@@ -38,18 +38,7 @@ try {
 } catch (S3Exception $e) {
     echo $e->getMessage() . PHP_EOL;
 }
-try {
-    $objects = $s3->listObjects([
-        'Bucket' => $bucket['Name']
-    ]);
-    foreach ($objects['Contents']  as $object) {
-        echo $object['Key'] . PHP_EOL;
-        $filelist .= $object['Key'] . PHP_EOL;
-    }
-} catch (S3Exception $e) {
-    echo $e->getMessage() . PHP_EOL;
-}
-/*
+
 $subject = 'S3 File List';
 $plaintext_body = $filelist ;
 $html_body =  '<h1>AWS Amazon Simple Email Service Test Email</h1>'.
@@ -93,5 +82,5 @@ try {
     echo("The email was not sent. Error message: ".$e->getAwsErrorMessage()."\n");
     echo "\n";
 }
-*/
+
 ?>

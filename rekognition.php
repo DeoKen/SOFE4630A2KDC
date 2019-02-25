@@ -44,8 +44,8 @@ foreach ($buckets['Buckets'] as $bucket) {
                 //echo '<table>';
                 for ($n=0;$n<sizeof($result['Labels']); $n++){
                     //echo '<tr>';
-                    echo '<td> Name: ' . $result['Labels'][$n]['Name'] . '</td>';
-                    echo '<td> Confidence: ' . $result['Labels'][$n]['Confidence'] . '</td>';
+                    echo '<tr><td> Name: ' . $result['Labels'][$n]['Name'] . '</td>';
+                    echo '<td> Confidence: ' . $result['Labels'][$n]['Confidence'] . '</td></tr>';
                     ///echo '</tr>';
                 }
                 //echo "</table>"

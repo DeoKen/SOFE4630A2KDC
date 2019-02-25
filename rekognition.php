@@ -32,10 +32,7 @@ foreach ($buckets['Buckets'] as $bucket) {
             }
             $result = $client->detectLabels([
                 'Image' => [ // REQUIRED
-                    'S3Object' => [
-                        'Bucket' => $bucket['Name'],
-                        'Name' => '$key',
-                    ],
+                    'Bytes' => 'https://s3.us-east-2.amazonaws.com/sofe430a2kdc/'.$key;
                 ],
                 'MaxLabels' => 10,
                 'MinConfidence' => 20,

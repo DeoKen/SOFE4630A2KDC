@@ -16,20 +16,7 @@ $SesClient = new SesClient([
     'version' => '2010-12-01',
     'region'  => 'us-east-1'
 ]);
-/*
-$s3 = new Aws\S3\S3Client([
-    'version'  => '2006-03-01',
-    'region'   => 'us-east-2',
-]);
-$bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
-foreach ($buckets['Buckets'] as $bucket) {
-    echo $bucket['Name'] . "\n";
-}
 $sender_email = 'kenneth.delacruz@uoit.net';
-
-
-//
-/*
 if( isset( $_POST['data'] ) && !empty( $_POST['data'] ) )
 {
     $recipient_emails = $_POST['data'];
@@ -37,7 +24,7 @@ if( isset( $_POST['data'] ) && !empty( $_POST['data'] ) )
 } else {
     echo("no email");
 }
-
+/*
 //getting files list
 try {
     $results = $s3->getPaginator('ListObjects', [

@@ -6,7 +6,7 @@ $s3 = new Aws\S3\S3Client([
     'region'   => 'us-east-2',
 ]);
 
-$rekog = new Aws\Rekognition\RekognitionClient([
+$client = new Aws\Rekognition\RekognitionClient([
     'version'   =>  'latest',
     'region'    =>  'us-east-1',
 ]);

@@ -48,10 +48,9 @@
     <head><meta charset="UTF-8"></head>
     <body>
         <p>Google TTS</p>
-        <form method="post" id="tts">
+        <form action="tts.php" method="post" id="tts">
         <input type="text" name="tts">
         <input type="submit">
         </form>
-        <a href=https://sofe4630a2kdc.herokuapp.com>HOME</a>
     </body>
 </html>

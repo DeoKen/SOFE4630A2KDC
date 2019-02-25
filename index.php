@@ -68,7 +68,11 @@ if(isset($_FILES['file'])){
         <input type="text" name="data">
         <input type="submit">
         </form>
-        <a href='https://sofe4630a2kdc.herokuapp.com/tts.php'>TTS</a>
+        <p>Google TTS</p>
+        <form action="tts.php" method="post" id="tts">
+        <input type="text" name="tts">
+        <input type="submit">
+        </form>
 
     </body>
 </html>

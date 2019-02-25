@@ -5,6 +5,11 @@ $SesClient = new SesClient([
     'version' => '2010-12-01',
     'region'  => 'us-west-2'
 ]);
+$s3 = new Aws\S3\S3Client([
+    'version'  => '2006-03-01',
+    'region'   => 'us-east-2',
+]);
+$bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
 $sender_email = 'kenneth.delacruz@uoit.net';
 
 //
@@ -13,15 +18,9 @@ if( isset( $_POST['data'] ) && !empty( $_POST['data'] ) )
     $recipient_emails = $_POST['data'];
 } else {
     echo("no email");
-    exit();
 }
 
 //getting files list
-$s3 = new Aws\S3\S3Client([
-    'version'  => '2006-03-01',
-    'region'   => 'us-east-2',
-]);
-$bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
 try {
     $results = $s3->getPaginator('ListObjects', [
         'Bucket' => $bucket['Name']
@@ -40,6 +39,7 @@ try {
         'Bucket' => $bucket['Name']
     ]);
     foreach ($objects['Contents']  as $object) {
+        echo $object['Key'] . PHP_EOL;
         $filelist .= $object['Key'] . PHP_EOL;
     }
 } catch (S3Exception $e) {
@@ -89,3 +89,4 @@ try {
     echo("The email was not sent. Error message: ".$e->getAwsErrorMessage()."\n");
     echo "\n";
 }
+?>

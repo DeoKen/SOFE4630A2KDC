@@ -11,12 +11,6 @@ foreach ($buckets['Buckets'] as $bucket) {
     echo $bucket['Name'] . "\n";
 }
 ?>
-<html>
-    <head><meta charset="UTF-8"></head>
-    <body>
-		<h3>S3 Files</h3>
-    </body>
-</html>
 /*
 $SesClient = new SesClient([
     'version' => '2010-12-01',

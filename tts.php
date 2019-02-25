@@ -15,40 +15,40 @@
     $file = $file . ".mp3";
     //file_put_contents($file, "");
     $googleAPIKey = 'AIzaSyBFHwK7xiu0O1mlztwcg18yBYPdb-2f0Wk';
-    use Google\Cloud\TextToSpeech\V1;
-// instantiates a client
-$client = new TextToSpeechClient();
-echo "new client";
-// sets text to be synthesised
-$synthesis_input = (new SynthesisInput())
-    ->setText('Hello, world!');
-    echo "output";
-// build the voice request, select the language code ("en-US") and the ssml
-// voice gender
-$voice = (new VoiceSelectionParams())
-    ->setLanguageCode('en-US')
-    ->setSsmlGender(SsmlVoiceGender::FEMALE);
-    echo "voice";
-// select the type of audio file you want returned
-$audioConfig = (new AudioConfig())
-    ->setAudioEncoding(AudioEncoding::MP3);
-    echo "config";
-// perform text-to-speech request on the text input with selected voice
-// parameters and audio file type
-$response = $client->synthesizeSpeech($synthesis_input, $voice, $audioConfig);
-$audioContent = $response->getAudioContent();
-// the response's audioContent is binary
-file_put_contents($file, $audioContent);
-    //if (filesize($file)>0){
+    $client = new GuzzleHttp\Client();
+    $requestData = [
+        'input' =>[
+            'text' => $textToS
+        ],
+        'voice' => [
+            'languageCode' => 'en-US',
+            'name' => 'en-US-Wavenet-F'
+        ],
+        'audioConfig' => [
+            'audioEncoding' => 'MP3',
+            'pitch' => 0.00,
+            'speakingRate' => 1.00
+        ]
+    ];
+    try {
+        $response = $client->request('POST', 'https://texttospeech.googleapis.com/v1beta1/text:synthesize?key=' . $googleAPIKey, [
+            'json' => $requestData
+        ]);
+    } catch (Exception $e) {
+        die('Something went wrong: ' . $e->getMessage());
+    }
+    $fileData = json_decode($response->getBody()->getContents(), true);
+    file_put_contents($file, base64_decode($fileData['audioContent']));
+    if (filesize($file)>0){
         echo "<audio controls><source src=".$file." type=audio/mp3></audio>";
-    //}
+    }
 
 ?>
 <html>
     <head><meta charset="UTF-8"></head>
     <body>
         <p>Google TTS</p>
-        <form action="tts.php" method="post" id="tts">
+        <form method="post" id="tts">
         <input type="text" name="tts">
         <input type="submit">
         </form>

@@ -12,7 +12,7 @@ $client = new Aws\Rekognition\RekognitionClient([
 ]);
 
 $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
-}
+
 
 ?>
 
@@ -24,7 +24,7 @@ $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!'
             if(isset($_GET['value'])){
                 $key = $_GET['value'];
             }
-            //echo "<h2>Analyzing".$key."</h2>";
+            echo "<h2>Analyzing".$key."</h2>";
             try {
                 $result = $client->detectLabels([
                     'Image' => [ // REQUIRED

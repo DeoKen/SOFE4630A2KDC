@@ -1,4 +1,5 @@
 <?php
+
     require 'vendor/autoload.php';
     $articleText = 'no message found';
 
@@ -34,7 +35,9 @@
         die('Something went wrong: ' . $e->getMessage());
     }
     $fileData = json_decode($response->getBody()->getContents(), true);
-    file_put_contents('tts.mp3', base64_decode($fileData['audioContent']));
+    $file = file_put_contents('tts.mp3', base64_decode($fileData['audioContent']));
+
+    echo "<audio controls><source src=".$file." type='audio/mpeg></audio>";
 
 ?>
 <html>

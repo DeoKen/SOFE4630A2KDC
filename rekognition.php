@@ -6,9 +6,9 @@ $s3 = new Aws\S3\S3Client([
     'region'   => 'us-east-2',
 ]);
 
-$rekog = new Aws/Rekognition/RekognitionClient([
+$rekog = new Aws\Rekognition\RekognitionClient([
     'version'   =>  'latest',
-    'region'    => 'us-east-2',
+    'region'    =>  'us-east-2',
 ]);
 
 $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
@@ -24,12 +24,12 @@ foreach ($buckets['Buckets'] as $bucket) {
     <head><meta charset="UTF-8"></head>
     <body>
         <h1>Hello SOFE4630</h1>
-        <?php
+        /*<?php
             if(isset($_GET['value'])){
                 $key = $_GET['value'];
                 echo $key;
             }
-            /*
+
             $result = $rekog->detectLabels([
                 'Image' => [ // REQUIRED
                     'S3Object' => [

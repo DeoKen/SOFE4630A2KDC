@@ -29,7 +29,7 @@ $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!'
                 $result = $client->detectLabels([
                     'Image' => [ // REQUIRED
                         'S3Object' => [
-                            'Bucket' => $bucket['Name'],
+                            'Bucket' => $bucket,
                             'Name' => $key,
                         ],
                     ],

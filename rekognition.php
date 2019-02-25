@@ -31,7 +31,7 @@ foreach ($buckets['Buckets'] as $bucket) {
                 echo $key;
             }
             try {
-                $result = $rekog->detectLabels([
+                $result = $client->detectLabels([
                     'Image' => [ // REQUIRED
                         'S3Object' => [
                             'Bucket' => $bucket['Name'],
@@ -42,7 +42,7 @@ foreach ($buckets['Buckets'] as $bucket) {
                     'MinConfidence' => 20,
                 ]);
 
-                echo $result;
+                //echo $result;
                 //echo $result['Name']['Confidence'];
                 }
 

@@ -28,9 +28,7 @@ foreach ($buckets['Buckets'] as $bucket) {
         <?php
             if(isset($_GET['value'])){
                 $key = $_GET['value'];
-                echo $key;
             }
-            //$image = file_get_contents('https://s3.us-east-2.amazonaws.com/sofe430a2kdc/'.$key);
             try {
                 $result = $client->detectLabels([
                     'Image' => [ // REQUIRED
@@ -43,10 +41,16 @@ foreach ($buckets['Buckets'] as $bucket) {
                     'MinConfidence' => 20,
                 ]);
                 //echo "im here";
+                echo "<table>";
                 for ($n=0;$n<sizeof($result['Labels']); $n++){
-                    echo 'Name: ' . $result['Labels'][$n]['Name'] . PHP_EOL;
-                    echo 'Confidence: ' . $result['Labels'][$n]['Confidence'] . PHP_EOL.'<br>';
+                    echo '<tr>';
+                    $name = $result['Labels'][$n]['Name'];
+                    $confidence = $result['Labels'][$n]['Confidence'];
+                    echo '<td> Name: ' . $name.'</td>';
+                    echo '<td> Confidence: ' . $confidence.'</td>';
+                    echo '</tr>';
                 }
+                echo "</table>"
             } catch(Exception $e) {
                 echo $e->getMessage() . PHP_EOL;
             }

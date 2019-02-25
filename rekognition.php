@@ -43,7 +43,7 @@ foreach ($buckets['Buckets'] as $bucket) {
                     'MinConfidence' => 20,
                 ]);
                 echo "im here";
-                echo $result;
+                echo $result['Labels';
                 //echo $result['Name']['Confidence'];
             } catch(Exception $e) {
                 echo $e->getMessage() . PHP_EOL;

@@ -3,16 +3,20 @@ require 'vendor/autoload.php';
 
 $SesClient = new SesClient([
     'version' => '2010-12-01',
-    'region'  => 'us-west-2'
+    'region'  => 'us-east-1'
 ]);
 $s3 = new Aws\S3\S3Client([
     'version'  => '2006-03-01',
     'region'   => 'us-east-2',
 ]);
 $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
+foreach ($buckets['Buckets'] as $bucket) {
+    echo $bucket['Name'] . "\n";
+}
 $sender_email = 'kenneth.delacruz@uoit.net';
 
 //
+/*
 if( isset( $_POST['data'] ) && !empty( $_POST['data'] ) )
 {
     $recipient_emails = $_POST['data'];
@@ -46,7 +50,7 @@ try {
 } catch (S3Exception $e) {
     echo $e->getMessage() . PHP_EOL;
 }
-/*
+
 $subject = 'S3 File List';
 $plaintext_body = $filelist ;
 $html_body =  '<h1>AWS Amazon Simple Email Service Test Email</h1>'.

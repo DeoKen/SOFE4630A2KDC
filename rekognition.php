@@ -24,11 +24,12 @@ foreach ($buckets['Buckets'] as $bucket) {
 <html>
     <head><meta charset="UTF-8"></head>
     <body>
-        <h1>Hello SOFE4630</h1>
+        <h1>Amazon Rekognition</h1>
         <?php
             if(isset($_GET['value'])){
                 $key = $_GET['value'];
             }
+            echo "<h2>Analyzing ".$key."</h2>";
             try {
                 $result = $client->detectLabels([
                     'Image' => [ // REQUIRED

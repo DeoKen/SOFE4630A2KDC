@@ -42,9 +42,11 @@ foreach ($buckets['Buckets'] as $bucket) {
                     'MaxLabels' => 10,
                     'MinConfidence' => 20,
                 ]);
-                echo "im here";
-                echo $result['Labels'];
-                //echo $result['Name']['Confidence'];
+                //echo "im here";
+                for ($n=0;$n<sizeof($result['Labels']); $n++){
+                    echo 'Name: ' . $result['Labels'][$n]['Name'] . PHP_EOL;
+                    echo 'Confidence: ' . $result['Labels'][$n]['Confidence'] . PHP_EOL.'<br>';
+                }
             } catch(Exception $e) {
                 echo $e->getMessage() . PHP_EOL;
             }

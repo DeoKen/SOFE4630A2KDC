@@ -48,7 +48,7 @@ $html_body =  '<h1>AWS Amazon Simple Email Service Test Email</h1>'.
               'Amazon SES</a> using the <a href="https://aws.amazon.com/sdk-for-php/">'.
               'AWS SDK for PHP</a>.</p>';
 $char_set = 'UTF-8';
-
+echo "got here";
 try {
     $result = $SesClient->sendEmail([
         'Destination' => [
@@ -81,5 +81,5 @@ try {
     echo("The email was not sent. Error message: ".$e->getAwsErrorMessage()."\n");
     echo "\n";
 }
-
+echo "at end";
 ?>

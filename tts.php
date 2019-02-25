@@ -3,14 +3,14 @@
     require 'vendor/autoload.php';
     $articleText = 'no message found';
 
-    /*
+
     if( isset( $_GET['tts'] ) && !empty( $_GET['tts'] ) )
     {
             $articleText = $_GET['data'];
     } else {
         $articleText = 'no message found';
     }
-    */
+    
     $googleAPIKey = 'AIzaSyBFHwK7xiu0O1mlztwcg18yBYPdb-2f0Wk';
     $client = new GuzzleHttp\Client();
     $requestData = [

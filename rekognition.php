@@ -44,7 +44,7 @@ $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!'
                     echo '<td> Confidence: ' . $result['Labels'][$n]['Confidence'] . '</td></tr>';
                     ///echo '</tr>';
                 }
-                echo '</table>';
+                echo '</table><a href=https://sofe4630a2kdc.herokuapp.com/>HOME</a>';
             } catch(Exception $e) {
                 echo $e->getMessage() . PHP_EOL;
             }

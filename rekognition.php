@@ -27,6 +27,7 @@ foreach ($buckets['Buckets'] as $bucket) {
         <?php
             if(isset($_GET['value'])){
                 $key = $_GET['value'];
+                echo $key;
             }
             $result = $rekog->detectLabels([
                 'Image' => [ // REQUIRED
@@ -38,7 +39,7 @@ foreach ($buckets['Buckets'] as $bucket) {
                 'MaxLabels' => 10,
                 'MinConfidence' => 20,
             ]);
-            echo $result;
+            //echo $result;
             //echo $result['Name']['Confidence'];
         ?>
     </body>

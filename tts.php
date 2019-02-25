@@ -40,7 +40,7 @@
     $file = $file . ".mp3";
     file_put_contents($file, base64_decode($fileData['audioContent']));
 
-    //echo "<audio controls><source src=".$file." type=audio/mp3></audio>";
+    echo "<audio controls><source src=".$file." type=audio/mp3></audio>";
 
 ?>
 <html>

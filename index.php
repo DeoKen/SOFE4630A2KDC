@@ -67,7 +67,7 @@ if(isset($_FILES['file'])){
         <form action="email.php" method="post" id="data">
         <input type="text" name="data">
         <input type="submit">
-
+        </form>
         <a href='https://sofe4630a2kdc.herokuapp.com/tts.php'>TTS</a>
 
     </body>

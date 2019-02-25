@@ -68,7 +68,7 @@ if(isset($_FILES['file'])){
         <input type="text" name="data">
         <input type="submit">
 
-        <a href='https://sofe4630a2kdc.herokuapp.com/tte.php'>TTS</a>
+        <a href='https://sofe4630a2kdc.herokuapp.com/tts.php'>TTS</a>
 
     </body>
 </html>

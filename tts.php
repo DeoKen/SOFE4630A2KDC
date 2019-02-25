@@ -1,29 +1,21 @@
-
-<html>
-    <head><meta charset="UTF-8"></head>
-    <body>
-        <p>Google TTS</p>
-        <form  method="post" id="tts">
-        <input type="text" name="tts">
-        <input type="submit">
-        </form>
-        <?php
+<?php
 
     require 'vendor/autoload.php';
 
     if( isset( $_POST['tts'] ) && !empty( $_POST['tts'] ) )
     {
-        $articleText = $_POST['tts'];
+        $textToS = $_POST['tts'];
+        echo $textToS;
 
     } else {
-        $articleText = 'no message found';
+        $textToS = 'no message found';
     }
 
     $googleAPIKey = 'AIzaSyBFHwK7xiu0O1mlztwcg18yBYPdb-2f0Wk';
     $client = new GuzzleHttp\Client();
     $requestData = [
         'input' =>[
-            'text' => $articleText
+            'text' => $textToS
         ],
         'voice' => [
             'languageCode' => 'en-US',
@@ -50,5 +42,13 @@
     echo "<audio controls><source src=".$file." type=audio/mp3></audio>";
 
 ?>
+<html>
+    <head><meta charset="UTF-8"></head>
+    <body>
+        <p>Google TTS</p>
+        <form  method="post" id="tts">
+        <input type="text" name="tts">
+        <input type="submit">
+        </form>
     </body>
 </html>

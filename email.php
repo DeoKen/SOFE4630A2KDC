@@ -19,7 +19,7 @@ $sender_email = 'k_jasper0.1@hotmail.com';
 if( isset( $_POST['data'] ) && !empty( $_POST['data'] ) )
 {
     $recipient_emails = $_POST['data'];
-    echo $recipient_emails;
+    echo "recipeint is: ".$recipient_emails."<br>";
 } else {
     echo("no email");
 }

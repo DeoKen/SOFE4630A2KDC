@@ -10,7 +10,9 @@
     } else {
         $textToS = 'no message found';
     }
-
+    $file = "tts";
+    $file = $file . ".mp3";
+    file_put_contents($file, "");
     $googleAPIKey = 'AIzaSyBFHwK7xiu0O1mlztwcg18yBYPdb-2f0Wk';
     $client = new GuzzleHttp\Client();
     $requestData = [
@@ -35,8 +37,6 @@
         die('Something went wrong: ' . $e->getMessage());
     }
     $fileData = json_decode($response->getBody()->getContents(), true);
-    $file = "tts";
-    $file = $file . ".mp3";
     file_put_contents($file, base64_decode($fileData['audioContent']));
 
     echo "<audio controls><source src=".$file." type=audio/mp3></audio>";

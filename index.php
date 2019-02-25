@@ -8,6 +8,12 @@ $s3 = new Aws\S3\S3Client([
 
 
 $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
+$buckets = $s3->listBuckets();
+
+
+foreach ($buckets['Buckets'] as $bucket) {
+    echo $bucket['Name'] . "\n";
+}
 ?>
 <html>
     <head><meta charset="UTF-8"></head>
@@ -64,6 +70,7 @@ if(isset($_FILES['file'])){
         <form action="email.php" method="post" id="data">
         <input type="text" name="data">
         <input type="submit">
+
 
         <p>Google TTS</p>
         <form action="tts.php" method="post" id="tts">

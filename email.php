@@ -11,12 +11,12 @@ foreach ($buckets['Buckets'] as $bucket) {
     echo $bucket['Name'] . "\n";
 }
 
-/*
+
 $SesClient = new SesClient([
     'version' => '2010-12-01',
     'region'  => 'us-east-1'
 ]);
-
+/*
 $s3 = new Aws\S3\S3Client([
     'version'  => '2006-03-01',
     'region'   => 'us-east-2',

@@ -34,7 +34,8 @@
         die('Something went wrong: ' . $e->getMessage());
     }
     $fileData = json_decode($response->getBody()->getContents(), true);
-    file_put_contents('tts.mp3', base64_decode($fileData['audioContent']));
+    $file = file_put_contents('tts.mp3', base64_decode($fileData['audioContent']));
+    echo $file;
 ?>
 <html>
     <head><meta charset="UTF-8"></head>

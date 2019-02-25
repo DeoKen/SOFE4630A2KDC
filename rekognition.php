@@ -41,14 +41,14 @@ foreach ($buckets['Buckets'] as $bucket) {
                     'MinConfidence' => 20,
                 ]);
                 //echo "im here";
-                echo '<table>';
+                //echo '<table>';
                 for ($n=0;$n<sizeof($result['Labels']); $n++){
-                    echo '<tr>';
+                    //echo '<tr>';
                     echo '<td> Name: ' . $result['Labels'][$n]['Name'] . '</td>';
                     echo '<td> Confidence: ' . $result['Labels'][$n]['Confidence'] . '</td>';
-                    echo '</tr>';
+                    ///echo '</tr>';
                 }
-                echo "</table>"
+                //echo "</table>"
             } catch(Exception $e) {
                 echo $e->getMessage() . PHP_EOL;
             }

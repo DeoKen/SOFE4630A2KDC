@@ -43,6 +43,6 @@ foreach ($buckets['Buckets'] as $bucket) {
             */
             //echo $result;
             //echo $result['Name']['Confidence'];
-        ?>
+        //?>
     </body>
 </html>

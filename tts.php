@@ -7,7 +7,7 @@
     if( isset( $_POST['tts'] ) && !empty( $_POST['tts'] ) )
     {
         $articleText = $_POST['tts'];
-        echo $articleText;
+
     } else {
         $articleText = 'no message found';
     }
@@ -40,7 +40,7 @@
     $file = $file . ".mp3";
     file_put_contents($file, base64_decode($fileData['audioContent']));
 
-    echo "<audio controls><source src=".$file." type=audio/mp3></audio>";
+    //echo "<audio controls><source src=".$file." type=audio/mp3></audio>";
 
 ?>
 <html>
@@ -50,5 +50,7 @@
         <form action="tts.php" method="post" id="tts">
         <input type="text" name="tts">
         <input type="submit">
+        </form>
+        <audio controls><source src=<?php echo $file; ?>type=audio/mp3></audio>
     </body>
 </html>

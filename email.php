@@ -50,7 +50,7 @@ $html_body =  '<h1>AWS Amazon Simple Email Service Test Email</h1>'.
 $char_set = 'UTF-8';
 echo "got here";
 try {
-    $result = $SesClient->sendEmail([
+    $SesClient->sendEmail([
         'Destination' => [
             'ToAddresses' => $recipient_emails,
         ],
@@ -74,8 +74,8 @@ try {
         ],
     ]);
     echo "at middle";
-    $messageId = $result['MessageId'];
-    echo("Email sent! Message ID: $messageId"."\n");
+    //$messageId = $result['MessageId'];
+    //echo("Email sent! Message ID: $messageId"."\n");
 } catch (AwsException $e) {
     // output error message if fails
     echo $e->getMessage();

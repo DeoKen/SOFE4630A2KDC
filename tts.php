@@ -24,21 +24,21 @@ use Google\Cloud\TextToSpeech\V1\TextToSpeechClient;
 use Google\Cloud\TextToSpeech\V1\VoiceSelectionParams;
 // instantiates a client
 $client = new TextToSpeechClient();
-echo "new client";
+//echo "new client";
 // sets text to be synthesised
 $synthesis_input = (new SynthesisInput())
     ->setText('Hello, world!');
-    echo "output";
+    //echo "output";
 // build the voice request, select the language code ("en-US") and the ssml
 // voice gender
 $voice = (new VoiceSelectionParams())
     ->setLanguageCode('en-US')
     ->setSsmlGender(SsmlVoiceGender::FEMALE);
-    echo "voice";
+    //echo "voice";
 // select the type of audio file you want returned
 $audioConfig = (new AudioConfig())
     ->setAudioEncoding(AudioEncoding::MP3);
-    echo "config";
+    //echo "config";
 // perform text-to-speech request on the text input with selected voice
 // parameters and audio file type
 $response = $client->synthesizeSpeech($synthesis_input, $voice, $audioConfig);

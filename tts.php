@@ -35,8 +35,8 @@
     }
     $fileData = json_decode($response->getBody()->getContents(), true);
     $file = file_put_contents('tts.mp3', base64_decode($fileData['audioContent']));
-    echo $file;
-    echo "<audio controls><source src='tts.mp3' type='audio/mpeg></audio>";
+
+    echo "<audio controls><source src=".$file." type='audio/mpeg></audio>";
 
 ?>
 <html>

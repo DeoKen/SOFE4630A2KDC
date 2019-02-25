@@ -40,17 +40,9 @@
     $fileData = json_decode($response->getBody()->getContents(), true);
     file_put_contents($file, base64_decode($fileData['audioContent']));
     if (filesize($file)>0){
-        echo "<audio controls><source src=".$file." type=audio/mp3></audio>";
+        echo "<audio controls autoplay><source src=".$file." type=audio/mp3></audio>";
     }
-
+    header("Location: index.php");
+    exit();
 ?>
-<html>
-    <head><meta charset="UTF-8"></head>
-    <body>
-        <p>Google TTS</p>
-        <form action="tts.php" method="post" id="tts">
-        <input type="text" name="tts">
-        <input type="submit">
-        </form>
-    </body>
-</html>
+

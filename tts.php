@@ -12,7 +12,7 @@
     }
     $file = "tts";
     $file = $file . ".mp3";
-    file_put_contents($file, "");
+    //file_put_contents($file, "");
     $googleAPIKey = 'AIzaSyBFHwK7xiu0O1mlztwcg18yBYPdb-2f0Wk';
     $client = new GuzzleHttp\Client();
     $requestData = [

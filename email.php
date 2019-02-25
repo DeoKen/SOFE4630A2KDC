@@ -46,7 +46,8 @@ $plaintext_body = $filelist;
 $html_body =  '<h1>AWS Amazon Simple Email Service Test Email</h1>'.
               '<p>This email was sent with <a href="https://aws.amazon.com/ses/">'.
               'Amazon SES</a> using the <a href="https://aws.amazon.com/sdk-for-php/">'.
-              'AWS SDK for PHP</a>.</p>';
+              'AWS SDK for PHP</a>.</p><br><br>'.
+              $filelist;
 $char_set = 'UTF-8';
 echo "got here";
 try {

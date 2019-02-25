@@ -25,6 +25,7 @@ foreach ($buckets['Buckets'] as $bucket) {
 		    $bucket['Name'],
 		    $object['Key']
 		]);
+		echo "<p>https://s3.us-east-2.amazonaws.com/sofe430a2kdc/<p>";
 		echo "<img src=https://s3.us-east-2.amazonaws.com/sofe430a2kdc/".$object['Key'] . " height='100' width='100'><br>";
 
 		}

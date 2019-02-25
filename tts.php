@@ -2,9 +2,9 @@
 
     require 'vendor/autoload.php';
 
-    if( isset( $_GET['tts'] ) && !empty( $_GET['tts'] ) )
+    if( isset( $_POST['tts'] ) && !empty( $_POST['tts'] ) )
     {
-        $textToS = $_GET['tts'];
+        $textToS = $_POST['tts'];
         echo $textToS;
 
     } else {
@@ -46,7 +46,7 @@
     <head><meta charset="UTF-8"></head>
     <body>
         <p>Google TTS</p>
-        <form  method="get" id="tts">
+        <form  method="post" id="tts">
         <input type="text" name="tts">
         <input type="submit">
         </form>

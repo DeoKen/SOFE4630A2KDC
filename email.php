@@ -24,29 +24,8 @@ if( isset( $_POST['data'] ) && !empty( $_POST['data'] ) )
     echo("no email");
 }
 ?>
-<html>
-    <head><meta charset="UTF-8"></head>
-    <body>
-		<h3>S3 Files</h3>
-<?php
-	try {
-		$objects = $s3->getIterator('ListObjects', array(
-			"Bucket" => $bucket['Name']
-		));
-		foreach ($objects as $object) {
-		    echo "<img src=https://s3.us-east-2.amazonaws.com/sofe430a2kdc/";
-		    echo $object['Key'] . " height='100' width='100'><br><br>";
-		}
-
-    } catch(Exception $e) {
-        echo $e->getMessage() . PHP_EOL;
-    }
-
-?>
-    </body>
-</html>
 //getting files list
-/*
+
 try {
     $results = $s3->getPaginator('ListObjects', [
         'Bucket' => $bucket['Name']

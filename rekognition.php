@@ -30,11 +30,13 @@ foreach ($buckets['Buckets'] as $bucket) {
                 $key = $_GET['value'];
                 echo $key;
             }
-            $image = file_get_contents('https://s3.us-east-2.amazonaws.com/sofe430a2kdc/'.$key);
+            //$image = file_get_contents('https://s3.us-east-2.amazonaws.com/sofe430a2kdc/'.$key);
             $result = $client->detectLabels([
                 'Image' => [ // REQUIRED
-                    'Bytes' => $image;
-                ],
+                    'S3Object' => [
+                        'Bucket' => $bucket['Name'],
+                        'Name' => $key,
+                    ],
                 'MaxLabels' => 10,
                 'MinConfidence' => 20,
             ]);

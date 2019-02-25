@@ -10,12 +10,13 @@ $buckets = $s3->listBuckets();
 foreach ($buckets['Buckets'] as $bucket) {
     echo $bucket['Name'] . "\n";
 }
-/*
 
-$SesClient = new SesClient([
+
+$SesClient = new Aws\Ses\SesClient([
     'version' => '2010-12-01',
     'region'  => 'us-east-1'
 ]);
+/*
 $sender_email = 'kenneth.delacruz@uoit.net';
 
 if( isset( $_POST['data'] ) && !empty( $_POST['data'] ) )

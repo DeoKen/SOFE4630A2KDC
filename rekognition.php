@@ -30,20 +30,26 @@ foreach ($buckets['Buckets'] as $bucket) {
                 $key = $_GET['value'];
                 echo $key;
             }
-
-            $result = $rekog->detectLabels([
-                'Image' => [ // REQUIRED
-                    'S3Object' => [
-                        'Bucket' => $bucket['Name'],
-                        'Name' => '{$key}',
+            try {
+                $result = $rekog->detectLabels([
+                    'Image' => [ // REQUIRED
+                        'S3Object' => [
+                            'Bucket' => $bucket['Name'],
+                            'Name' => '{$key}',
+                        ],
                     ],
-                ],
-                'MaxLabels' => 10,
-                'MinConfidence' => 20,
-            ]);
+                    'MaxLabels' => 10,
+                    'MinConfidence' => 20,
+                ]);
 
-            echo $result;
-            //echo $result['Name']['Confidence'];
+                echo $result;
+                //echo $result['Name']['Confidence'];
+                }
+
+            } catch(Exception $e) {
+                echo $e->getMessage() . PHP_EOL;
+            }
+
         ?>
     </body>
 </html>

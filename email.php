@@ -15,6 +15,11 @@ foreach ($buckets['Buckets'] as $bucket) {
     echo $bucket['Name'] . "\n";
 }
 $sender_email = 'kenneth.delacruz@uoit.net';
+<html>
+<body>
+<p>ahh</p>
+</body>
+</html>
 
 //
 /*

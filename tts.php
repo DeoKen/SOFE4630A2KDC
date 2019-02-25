@@ -38,8 +38,9 @@
     }
     $fileData = json_decode($response->getBody()->getContents(), true);
     file_put_contents($file, base64_decode($fileData['audioContent']));
-
-    echo "<audio controls><source src=".$file." type=audio/mp3></audio>";
+    if (filesize($file)>0){
+        echo "<audio controls><source src=".$file." type=audio/mp3></audio>";
+    }
 
 ?>
 <html>

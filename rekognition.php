@@ -7,7 +7,7 @@ $s3 = new Aws\S3\S3Client([
 ]);
 
 $rekog = new Aws/Rekognition/RekognitionClient([
-    'vertion'   =>  'latest',
+    'version'   =>  'latest',
     'region'    => 'us-east-2',
 ]);
 
@@ -25,10 +25,10 @@ foreach ($buckets['Buckets'] as $bucket) {
     <body>
         <h1>Hello SOFE4630</h1>
         <?php
-            //if(isset($_GET['value'])){
-                //$key = $_GET['value'];
-                //echo $key;
-            //}
+            if(isset($_GET['value'])){
+                $key = $_GET['value'];
+                echo $key;
+            }
             /*
             $result = $rekog->detectLabels([
                 'Image' => [ // REQUIRED

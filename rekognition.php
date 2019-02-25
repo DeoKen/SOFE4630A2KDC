@@ -12,12 +12,7 @@ $client = new Aws\Rekognition\RekognitionClient([
 ]);
 
 $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
-$buckets = $s3->listBuckets();
 
-
-foreach ($buckets['Buckets'] as $bucket) {
-    echo $bucket['Name'] . "\n";
-}
 
 ?>
 

@@ -73,7 +73,7 @@ if(isset($_FILES['file'])){
 
 
         <p>Google TTS</p>
-        <form action="tts.php" method="post" id="tts">
+        <form action="tts.php" method="get" id="tts">
         <input type="text" name="tts">
         <input type="submit">
     </body>

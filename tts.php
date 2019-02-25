@@ -1,9 +1,9 @@
 <?php
     require 'vendor/autoload.php';
     $googleAPIKey = 'AIzaSyBFHwK7xiu0O1mlztwcg18yBYPdb-2f0Wk';
-    if( isset( $_POST['tts'] ) && !empty( $_POST['tts'] ) )
+    if( isset( $_GET['tts'] ) && !empty( $_GET['tts'] ) )
     {
-            $articleText = $_POST['data'];
+            $articleText = $_GET['data'];
     } else {
         $articleText = 'no message found';
     }

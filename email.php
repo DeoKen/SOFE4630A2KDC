@@ -17,19 +17,20 @@ $SesClient = new SesClient([
     'region'  => 'us-east-1'
 ]);
 $sender_email = 'kenneth.delacruz@uoit.net';
-
-?>
-<html>
-    <head><meta charset="UTF-8"></head>
-    <body>
-		<h3>S3 Files</h3>
-		if( isset( $_POST['data'] ) && !empty( $_POST['data'] ) )
+/*
+if( isset( $_POST['data'] ) && !empty( $_POST['data'] ) )
 {
     $recipient_emails = $_POST['data'];
     echo $recipient_emails;
 } else {
     echo("no email");
 }
+*/
+?>
+<html>
+    <head><meta charset="UTF-8"></head>
+    <body>
+		<h3>S3 Files</h3>
 <?php
 	try {
 		$objects = $s3->getIterator('ListObjects', array(

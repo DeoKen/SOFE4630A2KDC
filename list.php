@@ -3,7 +3,7 @@ require('vendor/autoload.php');
 // this will simply read AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY from env vars
 $s3 = new Aws\S3\S3Client([
     'version'  => '2006-03-01',
-    'region'   => 'us-east-2',
+    'region'   => 'us-east-1',
 ]);
 $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
 $buckets = $s3->listBuckets();
@@ -29,26 +29,7 @@ foreach ($buckets['Buckets'] as $bucket) {
 <?php } catch(Exception $e) {
         echo $e->getMessage() . PHP_EOL;
  }
-/*
-try {
-    $results = $s3->getPaginator('ListObjects', [
-        'Bucket' => $bucket['Name']
-    ]);
 
-    foreach ($results as $result) {
-        foreach ($result['Contents'] as $object) {
-        echo $object['Key'] . PHP_EOL;
-                // Get the object.
-        $result1 = $s3->getObjectUrl([
-            'Bucket' => $bucket['Name'],
-            'Key'    => $object['Key']
-        ]);
-        echo "<img src=" . $object['Key']."><br>";
-    }
-} catch (S3Exception $e) {
-    echo $e->getMessage() . PHP_EOL;
-}
-*/
 ?>
     </body>
 </html>

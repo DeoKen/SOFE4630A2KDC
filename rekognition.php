@@ -32,13 +32,14 @@ foreach ($buckets['Buckets'] as $bucket) {
                 'Image' => [ // REQUIRED
                     'S3Object' => [
                         'Bucket' => $bucket['Name'],
-                        'Name' => '$key',
+                        'Name' => '{$key}',
                     ],
                 ],
                 'MaxLabels' => 10,
                 'MinConfidence' => 20,
             ]);
-            echo $result['Name']['Confidence'];
+            echo $result;
+            //echo $result['Name']['Confidence'];
         ?>
     </body>
 </html>

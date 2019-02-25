@@ -23,9 +23,8 @@ if( isset( $_POST['data'] ) && !empty( $_POST['data'] ) )
 } else {
     echo("no email");
 }
-?>
-//getting files list
 
+//getting files list
 try {
     $results = $s3->getPaginator('ListObjects', [
         'Bucket' => $bucket['Name']
@@ -94,6 +93,5 @@ try {
     echo("The email was not sent. Error message: ".$e->getAwsErrorMessage()."\n");
     echo "\n";
 }
-
-?>
 */
+?>

@@ -13,7 +13,7 @@ use Google\Cloud\TextToSpeech\V1\VoiceSelectionParams;
 $client = new TextToSpeechClient();
 // sets text to be synthesised
 $synthesis_input = (new SynthesisInput())
-    ->setText($articleText);
+    ->setText('hello there');
 // build the voice request, select the language code ("en-US") and the ssml
 // voice gender
 $voice = (new VoiceSelectionParams())

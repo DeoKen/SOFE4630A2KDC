@@ -19,6 +19,7 @@ class ComposerStaticInitaa3e5ed2d72ad78f39dec846a2ec6cc0
         'P' => 
         array (
             'Psr\\Http\\Message\\' => 17,
+            'Psr\\Cache\\' => 10,
         ),
         'J' => 
         array (
@@ -29,6 +30,20 @@ class ComposerStaticInitaa3e5ed2d72ad78f39dec846a2ec6cc0
             'GuzzleHttp\\Psr7\\' => 16,
             'GuzzleHttp\\Promise\\' => 19,
             'GuzzleHttp\\' => 11,
+            'Grpc\\Gcp\\' => 9,
+            'Grpc\\' => 5,
+            'Google\\Protobuf\\' => 16,
+            'Google\\Cloud\\TextToSpeech\\' => 26,
+            'Google\\Auth\\' => 12,
+            'Google\\ApiCore\\' => 15,
+            'Google\\' => 7,
+            'GPBMetadata\\Google\\Protobuf\\' => 28,
+            'GPBMetadata\\Google\\Cloud\\Texttospeech\\' => 38,
+            'GPBMetadata\\Google\\' => 19,
+        ),
+        'F' => 
+        array (
+            'Firebase\\JWT\\' => 13,
         ),
         'A' => 
         array (
@@ -40,6 +55,10 @@ class ComposerStaticInitaa3e5ed2d72ad78f39dec846a2ec6cc0
         'Psr\\Http\\Message\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/http-message/src',
+        ),
+        'Psr\\Cache\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/cache/src',
         ),
         'JmesPath\\' => 
         array (
@@ -57,10 +76,59 @@ class ComposerStaticInitaa3e5ed2d72ad78f39dec846a2ec6cc0
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
         ),
+        'Grpc\\Gcp\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/google/grpc-gcp/src',
+        ),
+        'Grpc\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/grpc/grpc/src/lib',
+        ),
+        'Google\\Protobuf\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/google/protobuf/php/src/Google/Protobuf',
+        ),
+        'Google\\Cloud\\TextToSpeech\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/google/cloud-text-to-speech/src',
+        ),
+        'Google\\Auth\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/google/auth/src',
+        ),
+        'Google\\ApiCore\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/google/gax/src',
+        ),
+        'Google\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/google/common-protos/src',
+        ),
+        'GPBMetadata\\Google\\Protobuf\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/google/protobuf/php/src/GPBMetadata/Google/Protobuf',
+        ),
+        'GPBMetadata\\Google\\Cloud\\Texttospeech\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/google/cloud-text-to-speech/metadata',
+        ),
+        'GPBMetadata\\Google\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/google/common-protos/metadata',
+            1 => __DIR__ . '/..' . '/google/gax/metadata',
+        ),
+        'Firebase\\JWT\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/firebase/php-jwt/src',
+        ),
         'Aws\\' => 
         array (
             0 => __DIR__ . '/..' . '/aws/aws-sdk-php/src',
         ),
+    );
+
+    public static $fallbackDirsPsr4 = array (
+        0 => __DIR__ . '/..' . '/google/grpc-gcp/src/generated',
     );
 
     public static function getInitializer(ClassLoader $loader)
@@ -68,6 +136,7 @@ class ComposerStaticInitaa3e5ed2d72ad78f39dec846a2ec6cc0
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInitaa3e5ed2d72ad78f39dec846a2ec6cc0::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInitaa3e5ed2d72ad78f39dec846a2ec6cc0::$prefixDirsPsr4;
+            $loader->fallbackDirsPsr4 = ComposerStaticInitaa3e5ed2d72ad78f39dec846a2ec6cc0::$fallbackDirsPsr4;
 
         }, null, ClassLoader::class);
     }

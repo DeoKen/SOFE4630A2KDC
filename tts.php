@@ -1,12 +1,16 @@
 <?php
     require 'vendor/autoload.php';
     $googleAPIKey = 'AIzaSyBFHwK7xiu0O1mlztwcg18yBYPdb-2f0Wk';
+    $articleText = 'no message found';
+
+    /*
     if( isset( $_GET['tts'] ) && !empty( $_GET['tts'] ) )
     {
             $articleText = $_GET['data'];
     } else {
         $articleText = 'no message found';
     }
+    */
     use Google\Cloud\TextToSpeech\V1\AudioConfig;
     use Google\Cloud\TextToSpeech\V1\AudioEncoding;
     use Google\Cloud\TextToSpeech\V1\SynthesisInput;

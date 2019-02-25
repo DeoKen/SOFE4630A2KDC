@@ -1,5 +1,6 @@
 {
     "require": {
-        "aws/aws-sdk-php": "^3.87"
+        "aws/aws-sdk-php": "^3.87",
+        "google/cloud-text-to-speech": "^0.2.1"
     }
 }

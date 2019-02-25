@@ -1,11 +1,28 @@
 <?php
-require 'vendor/autoload.php';
+require('vendor/autoload.php');
+// this will simply read AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY from env vars
+$s3 = new Aws\S3\S3Client([
+    'version'  => '2006-03-01',
+    'region'   => 'us-east-2',
+]);
+$bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
+$buckets = $s3->listBuckets();
+foreach ($buckets['Buckets'] as $bucket) {
+    echo $bucket['Name'] . "\n";
+}
+?>
+<html>
+    <head><meta charset="UTF-8"></head>
+    <body>
+		<h3>S3 Files</h3>
+    </body>
+</html>
 /*
 $SesClient = new SesClient([
     'version' => '2010-12-01',
     'region'  => 'us-east-1'
 ]);
-*/
+
 $s3 = new Aws\S3\S3Client([
     'version'  => '2006-03-01',
     'region'   => 'us-east-2',
@@ -15,11 +32,7 @@ foreach ($buckets['Buckets'] as $bucket) {
     echo $bucket['Name'] . "\n";
 }
 $sender_email = 'kenneth.delacruz@uoit.net';
-<html>
-<body>
-<p>ahh</p>
-</body>
-</html>
+
 
 //
 /*

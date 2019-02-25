@@ -56,9 +56,9 @@ if(isset($_FILES['file'])){
 			"Bucket" => $bucket['Name']
 		));
 		foreach ($objects as $object) {
-		    echo "<a href=https://sofe4630a2kdc.herokuapp.com/rekognition.php?value=".$object['Key']."></a>";
+		    echo "<a href=https://sofe4630a2kdc.herokuapp.com/rekognition.php?value=".$object['Key'].">";
 		    echo "<img src=https://s3.us-east-2.amazonaws.com/sofe430a2kdc/";
-		    echo $object['Key'] . " height='100' width='100'><br><br>";
+		    echo $object['Key'] . " height='100' width='100'><br><br></a>";
 		}
 
     } catch(Exception $e) {

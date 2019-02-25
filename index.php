@@ -64,6 +64,11 @@ if(isset($_FILES['file'])){
         <form action="email.php" method="post" id="data">
         <input type="text" name="data">
         <input type="submit">
+
+        <p>Google TTS</p>
+        <form action="tts.php" method="post" id="tts">
+        <input type="text" name="tts">
+        <input type="submit">
     </body>
 </html>
 

@@ -25,10 +25,10 @@ foreach ($buckets['Buckets'] as $bucket) {
     <body>
         <h1>Hello SOFE4630</h1>
         <?php
-            if(isset($_GET['value'])){
+            //if(isset($_GET['value'])){
                 $key = $_GET['value'];
                 echo $key;
-            }
+            //}
             /*
             $result = $rekog->detectLabels([
                 'Image' => [ // REQUIRED

@@ -47,6 +47,7 @@ if( isset( $_POST['data'] ) && !empty( $_POST['data'] ) )
     </body>
 </html>
 //getting files list
+/*
 try {
     $results = $s3->getPaginator('ListObjects', [
         'Bucket' => $bucket['Name']

@@ -41,13 +41,11 @@ foreach ($buckets['Buckets'] as $bucket) {
                     'MinConfidence' => 20,
                 ]);
                 //echo "im here";
-                echo "<table>";
+                echo '<table>';
                 for ($n=0;$n<sizeof($result['Labels']); $n++){
                     echo '<tr>';
-                    $name = $result['Labels'][$n]['Name'];
-                    $confidence = $result['Labels'][$n]['Confidence'];
-                    echo '<td> Name: ' . $name.'</td>';
-                    echo '<td> Confidence: ' . $confidence.'</td>';
+                    echo '<td> Name: ' . $result['Labels'][$n]['Name'] . '</td>';
+                    echo '<td> Confidence: ' . $result['Labels'][$n]['Confidence'] . '</td>';
                     echo '</tr>';
                 }
                 echo "</table>"

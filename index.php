@@ -8,17 +8,11 @@ $s3 = new Aws\S3\S3Client([
 
 
 $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
-$buckets = $s3->listBuckets();
-
-
-foreach ($buckets['Buckets'] as $bucket) {
-    echo $bucket['Name'] . "\n";
-}
 ?>
 <html>
     <head><meta charset="UTF-8"></head>
     <body>
-        <h1>Hello SOFE4630</h1>
+        <h1>SOFE4630 A2 100579215</h1>
 
 <?php
 if(isset($_FILES['file'])){

@@ -4,9 +4,9 @@
     $articleText = 'no message found';
 
 
-    if( isset( $_GET['tts'] ) && !empty( $_GET['tts'] ) )
+    if( isset( $_POST['tts'] ) && !empty( $_POST['tts'] ) )
     {
-           $articleText = $_GET['tts'];
+           $articleText = $_POST['tts'];
     } else {
         $articleText = 'no message found';
     }
@@ -46,7 +46,7 @@
     <head><meta charset="UTF-8"></head>
     <body>
         <p>Google TTS</p>
-        <form action="tts.php" method="get" id="tts">
+        <form action="tts.php" method="post" id="tts">
         <input type="text" name="tts">
         <input type="submit">
         <audio controls><source src=<?php echo $file; ?> type=audio/mp3></audio>

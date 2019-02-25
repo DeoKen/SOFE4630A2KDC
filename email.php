@@ -73,6 +73,7 @@ try {
           ],
         ],
     ]);
+    echo "at middle";
     $messageId = $result['MessageId'];
     echo("Email sent! Message ID: $messageId"."\n");
 } catch (AwsException $e) {

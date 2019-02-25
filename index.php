@@ -46,9 +46,6 @@ if(isset($_FILES['file'])){
 <form enctype="multipart/form-data" action="" method="POST">
             <input name="file" type="file"><input type="submit" value="Upload">
 </form>
-<html>
-    <head><meta charset="UTF-8"></head>
-    <body>
 		<h3>S3 Bucket Files</h3>
 <?php
 	try {
@@ -71,11 +68,8 @@ if(isset($_FILES['file'])){
         <input type="text" name="data">
         <input type="submit">
 
+        <a href='https://sofe4630a2kdc.herokuapp.com/tte.php'>TTS</a>
 
-        <p>Google TTS</p>
-        <form action="tts.php" method="get" id="tts">
-        <input type="text" name="tts">
-        <input type="submit">
     </body>
 </html>
 

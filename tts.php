@@ -36,3 +36,12 @@
     $fileData = json_decode($response->getBody()->getContents(), true);
     file_put_contents('tts.mp3', base64_decode($fileData['audioContent']));
 ?>
+<html>
+    <head><meta charset="UTF-8"></head>
+    <body>
+        <p>Google TTS</p>
+        <form action="tts.php" method="get" id="tts">
+        <input type="text" name="tts">
+        <input type="submit">
+    </body>
+</html>

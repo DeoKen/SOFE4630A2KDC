@@ -6,12 +6,10 @@ $s3 = new Aws\S3\S3Client([
     'region'   => 'us-east-2',
 ]);
 
-
+//gets the bucket
 $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
 
-$buckets = $s3->listBuckets();
-
-
+$buckets = $s3->listBuckets();//this list all the buckets
 foreach ($buckets['Buckets'] as $bucket) {
     //echo $bucket['Name'] . "\n";
 }
@@ -23,14 +21,15 @@ foreach ($buckets['Buckets'] as $bucket) {
         <h1>SOFE4630 A2 100579215</h1>
 
 <?php
+//checking if there is a file
 if(isset($_FILES['file'])){
     $file = $_FILES['file'];
-
+    //making the file
     $name=$file['name'];
     $tempname=$file['tempname'];
     $extension=explode('.',$name);
     $extension=strtolower(end($extension));
-
+    //puting the file object to the bucket
     try{
         $s3->putObject([
             'Bucket'=>$bucket['Name'],
@@ -38,7 +37,6 @@ if(isset($_FILES['file'])){
             'Body'=>fopen($_FILES['file']['tmp_name'], 'rb'),
             'ACL'=>'public-read'
         ]);
-        unlink($tempfpath);
     }
     catch(Exception $e){
         echo $e->getMessage() . PHP_EOL;
@@ -50,11 +48,13 @@ if(isset($_FILES['file'])){
 </form>
 		<h3>S3 Bucket Files</h3>
 <?php
+    //listing all the objects in the bucket
 	try {
 		$objects = $s3->getIterator('ListObjects', array(
 			"Bucket" => $bucket['Name']
 		));
 		foreach ($objects as $object) {
+		    //echo the html format to show all the bucket pictures
 		    echo "<a href=https://sofe4630a2kdc.herokuapp.com/rekognition.php?value=".$object['Key'].">";
 		    echo "<img src=https://s3.us-east-2.amazonaws.com/sofe430a2kdc/";
 		    echo $object['Key'] . " height='100' width='100'><br><br></a>";
